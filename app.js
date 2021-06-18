@@ -32,11 +32,12 @@ function addBookToArray(title, author, pages, read) {
 }
 
 function createBookCard(book) {
-	const card = document.createElement('div')
-	const title = document.createElement('h3')
-	const author = document.createElement('h4')
-	const pages = document.createElement('h4')
-	const read = document.createElement('read')
+	const card = document.createElement('div');
+	const title = document.createElement('h3');
+	const author = document.createElement('h4');
+	const pages = document.createElement('h4');
+	const read = document.createElement('p');
+	const remove_button = document.createElement('button');
 
 	title.innerText = book.title;
 	author.innerText = book.author;
@@ -46,14 +47,19 @@ function createBookCard(book) {
 	} else {
 		read.innerText = 'Unread';
 	}
+	remove_button.innerText = 'Remove Book';
+
+
 	card.classList.add('book')
-	card.setAttribute('data', books.indexOf(book));
+	card.setAttribute('data-index', books.indexOf(book));
 	card.appendChild(title);
 	card.appendChild(author);
 	card.appendChild(pages);
 	card.appendChild(read);
+	card.appendChild(remove_button);
 
 	displayBook(card)
+	remove_button.addEventListener('click', removeBook);
 }
 
 function displayBook(card) {
@@ -61,17 +67,17 @@ function displayBook(card) {
 	bookshelf.appendChild(card);
 }
 
-function removeBook(book) {
-	myBooks.splice(book, 1);
-}
-function showBook(book) {
-	//display book on a card on the page
+function removeBook(e) {
+	let book_card = e.target.parentNode;
+	let index = book_card.dataset.index;
+	books.splice(index, 1);
+
+	const bookshelf = document.querySelector('.bookshelf');
+	bookshelf.removeChild(book_card);
 }
 
 const books = [];
 
-//make query listeners to add books to the page
 
-let hidden = true;
 const btn = document.querySelector('.btn') 
 btn.addEventListener('click', toggleForm);

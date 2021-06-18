@@ -8,9 +8,24 @@ body {
 	margin:0;
 }
 
+.head {
+	display:flex;
+	margin-bottom:5rem;
+}
+
+.bookshelf {
+	display:grid;
+	grid-template-columns:repeat(4, 1fr);
+	grid-gap:1fr;
+}
+
 form {
 	position:fixed;
 }
 .visibility {
 	display:none;
+}
+
+.book {
+	border:1px solid red;
 }
