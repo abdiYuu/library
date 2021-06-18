@@ -25,41 +25,46 @@ function addBookToArray(title, author, pages, read) {
 	books.push(new_book)
 	console.table(books);
 
-	createBookCard(new_book)
+	createBookCards()
+
 }
 
-function createBookCard(book) {
-	const card = document.createElement('div');
-	const title = document.createElement('h3');
-	const author = document.createElement('h4');
-	const pages = document.createElement('h4');
-	const read = document.createElement('p');
-	const remove_button = document.createElement('button');
+function createBookCards() {
+	const bookshelf = document.querySelector('.bookshelf')
+	bookshelf.innerHTML = '';
+	for(let book of books) {
+		const card = document.createElement('div');
+		const title = document.createElement('h3');
+		const author = document.createElement('h4');
+		const pages = document.createElement('h4');
+		const read = document.createElement('p');
+		const remove_button = document.createElement('button');
 
-	title.innerText = book.title;
-	author.innerText = book.author;
-	pages.innerText = book.pages;
-	if(book.read) {
-		read.innerText = 'Read';
-	} else {
-		read.innerText = 'Unread';
+		title.innerText = book.title;
+		author.innerText = book.author;
+		pages.innerText = book.pages;
+		if(book.read) {
+			read.innerText = 'Read';
+		} else {
+			read.innerText = 'Unread';
+		}
+		remove_button.innerText = 'Remove Book';
+
+
+		card.classList.add('book')
+		card.setAttribute('data-index', books.indexOf(book));
+		card.appendChild(title);
+		card.appendChild(author);
+		card.appendChild(pages);
+		card.appendChild(read);
+		card.appendChild(remove_button);
+
+		displayBooks(card)
+		remove_button.addEventListener('click', removeBook);
 	}
-	remove_button.innerText = 'Remove Book';
-
-
-	card.classList.add('book')
-	card.setAttribute('data-index', books.indexOf(book));
-	card.appendChild(title);
-	card.appendChild(author);
-	card.appendChild(pages);
-	card.appendChild(read);
-	card.appendChild(remove_button);
-
-	displayBook(card)
-	remove_button.addEventListener('click', removeBook);
 }
 
-function displayBook(card) {
+function displayBooks(card) {
 	const bookshelf = document.querySelector('.bookshelf')
 	bookshelf.appendChild(card);
 }
