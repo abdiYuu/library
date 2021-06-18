@@ -1,3 +1,10 @@
+
+@font-face {
+	font-family: 'Norse';
+	src: url('fonts/Norse.otf');
+	src: url('fonts/Norsebold.otf');
+}
+
 *,
 *::before,
 *::after {
@@ -6,6 +13,7 @@
 
 body {
 	margin:0;
+	background:#EDD3C4;
 }
 
 .head {
@@ -13,6 +21,44 @@ body {
 	margin:1rem;
 	margin-bottom:12rem;
 	justify-content:space-between;
+	font-family:'Norse', sans-serif;
+	font-size:1rem;
+	color:#CC9543;
+	align-items:flex-start;
+}
+
+.head-first {
+	display:flex;
+	width:80%;
+	align-items:baseline;
+
+}
+
+.icon {
+	width:3rem;
+}
+img {
+	width:100%;
+}
+
+.add {
+	margin-right:10%;
+}
+
+.btn {
+	background:#3B60E4;
+	color:#000;
+	border:none;
+	width:5rem;
+	height:3rem;
+}
+
+.btn:hover {
+	background:blue;
+}
+
+.btn:active {
+	background:red;
 }
 
 .bookshelf {
@@ -24,6 +70,7 @@ body {
 form {
 	position:fixed;
 }
+
 .visibility {
 	display:none;
 }
@@ -33,4 +80,10 @@ form {
 }
 input {
 	display:block;
+}
+
+@media(max-width:500px) {
+	.head {
+		flex-direction:column;
+	}
 }
