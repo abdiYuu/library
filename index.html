@@ -14,23 +14,25 @@
 		</div>
 		<div class='add'>
 			<button class='btn'>Add Book</button>
-			<form>
+			<form onsubmit='getBookInfo(); return false'>
 				<fieldset>
 					<legend>New Book</legend>
 					<label for='title'>Title
-						<input id='title' type="text" value='title'>
+						<input id='title' type="text"  required>
 					</label>
 					<label for='author'>Author
-						<input id='author' type='text' value='author'>
+						<input id='author' type='text' required>
 					</label>
 					<label for='pages'>Pages
-						<input id='pages' type='text' value='pages'>
+						<input id='pages' type='text' required>
 					</label>
 					<label for='read'>Read
 						<input id='read' type='checkbox'>
 					</label>
+					<button class='submit' type='submit'>Submit</button>
 				</fieldset>
 			</form>
+		</div>
 		<div class='theme'>
 			<h2>Theme Toggler</h2>
 		</div>
