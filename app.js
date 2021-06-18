@@ -27,33 +27,45 @@ function getBookInfo() {
 	const pages = document.getElementById('pages').value;
 	const read = document.getElementById('read').checked;
 
-	addBook(title, author, pages, read)
+	addBookToArray(title, author, pages, read)
 }
 
-function addBook(title, author, pages, read) {
-	books.push(new Book(title, author, pages, read));
+function addBookToArray(title, author, pages, read) {
+	const new_book = new Book(title, author, pages, read);
+	books.push(new_book)
 	console.table(books);
+
+	createBookCard(new_book)
 }
 
-function createBook() {
-	const book = document.createElement('div')
-	const title = document.creatElement('h3')
+function createBookCard(book) {
+	const card = document.createElement('div')
+	const title = document.createElement('h3')
 	const author = document.createElement('h4')
 	const pages = document.createElement('h4')
 	const read = document.createElement('read')
-	book.classList.add('book')
 
-	book.appendChild(title);
-	book.appendChild(author);
-	book.appendChild(pages);
-	book.appendChild(read);
+	title.innerText = book.title;
+	author.innerText = book.author;
+	pages.innerText = book.pages;
+	if(book.read) {
+		read.innerText = 'Unread';
+	} else {
+		read.innerText = 'Read';
+	}
+	card.classList.add('book')
+	card.appendChild(title);
+	card.appendChild(author);
+	card.appendChild(pages);
+	card.appendChild(read);
+
+	displayBook(card)
 }
 
-//function displayBook(
-//	const bookshelf = document.querySelector('.bookshelf')
-//	const book  = document.createElement('div')
-
-//)
+function displayBook(card) {
+	const bookshelf = document.querySelector('.bookshelf')
+	bookshelf.appendChild(card);
+}
 
 function removeBook(book) {
 	myBooks.splice(book, 1);
