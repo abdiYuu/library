@@ -10,15 +10,8 @@ function Book(title, author, pages, read) {
 
 
 function toggleForm(){
-	if(hidden) {
-		const form = document.querySelector('form');
-		form.style.display = 'block';
-		hidden=false;
-	} else {
-		const form = document.querySelector('form');
-		form.style.display = 'none';
-		hidden=true;
-	}
+	const form = document.querySelector('form');
+	form.classList.toggle('visibility')
 }
 
 function getBookInfo() {
@@ -49,11 +42,12 @@ function createBookCard(book) {
 	author.innerText = book.author;
 	pages.innerText = book.pages;
 	if(book.read) {
-		read.innerText = 'Unread';
-	} else {
 		read.innerText = 'Read';
+	} else {
+		read.innerText = 'Unread';
 	}
 	card.classList.add('book')
+	card.setAttribute('data', books.indexOf(book));
 	card.appendChild(title);
 	card.appendChild(author);
 	card.appendChild(pages);

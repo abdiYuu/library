@@ -9,6 +9,8 @@ body {
 }
 
 form {
-	display:none;
 	position:fixed;
+}
+.visibility {
+	display:none;
 }
