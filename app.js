@@ -3,9 +3,6 @@ function Book(title, author, pages, read) {
 	this.author = author;
 	this.pages = pages;
 	this.read = read;
-	this.info = function() {
-		return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}.`;
-	};
 }
 
 
@@ -70,10 +67,15 @@ function displayBook(card) {
 function removeBook(e) {
 	let book_card = e.target.parentNode;
 	let index = book_card.dataset.index;
-	books.splice(index, 1);
 
-	const bookshelf = document.querySelector('.bookshelf');
-	bookshelf.removeChild(book_card);
+	let verify = prompt(`Are you sure you want to remove "${books[index].title}" from your bookshelf?`)
+	if(verify === 'yes') {
+		books.splice(index, 1);
+		const bookshelf = document.querySelector('.bookshelf');
+		bookshelf.removeChild(book_card);
+	} else {
+		return;
+	}
 }
 
 const books = [];

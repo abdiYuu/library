@@ -10,13 +10,15 @@ body {
 
 .head {
 	display:flex;
-	margin-bottom:5rem;
+	margin:1rem;
+	margin-bottom:12rem;
+	justify-content:space-between;
 }
 
 .bookshelf {
 	display:grid;
 	grid-template-columns:repeat(4, 1fr);
-	grid-gap:1fr;
+	grid-gap:1rem;
 }
 
 form {
@@ -28,4 +30,7 @@ form {
 
 .book {
 	border:1px solid red;
+}
+input {
+	display:block;
 }
