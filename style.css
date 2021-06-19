@@ -124,6 +124,7 @@ input {
 	}
 	.bookshelf {
 		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 @keyframes clicked {
