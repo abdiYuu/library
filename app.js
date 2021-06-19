@@ -62,14 +62,14 @@ function createBookCards() {
 		card.appendChild(read);
 		card.appendChild(remove_button);
 
-		displayBooks(card)
+		displayBook(card)
 
 		remove_button.classList.add('btn')
 		remove_button.addEventListener('click', removeBook);
 	}
 }
 
-function displayBooks(card) {
+function displayBook(card) {
 	const bookshelf = document.querySelector('.bookshelf')
 	bookshelf.appendChild(card);
 }
