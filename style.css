@@ -1,3 +1,6 @@
+:root{
+  --bg-toggle: hsl(223, 31%, 20%);
+}
 
 @font-face {
 	font-family: 'Norse';
@@ -41,24 +44,31 @@ img {
 	width:100%;
 }
 
-.add {
+.container {
 	margin-right:10%;
 }
 
 .btn {
-	background:#3B60E4;
-	color:#000;
+	background:#1E2749;
+	color:#FFF;
 	border:none;
+	border-radius:.5rem;
 	width:5rem;
 	height:3rem;
+	font-family:'Norse';
+	font-weight:bold;
+	font-size:1.3rem;
+	box-shadow:3px 3px 5px 6px rgba(0, 0, 0, 0.4);
 }
 
 .btn:hover {
-	background:blue;
+	background:#E2D6FF;
+	color:#000
 }
 
 .btn:active {
-	background:red;
+	animation-name:clicked;
+	animation-duration:0.2s;
 }
 
 .bookshelf {
@@ -68,8 +78,18 @@ img {
 	grid-gap:1rem;
 }
 
+section {
+	width:60%;
+	margin:auto;
+}
+
 form {
-	position:fixed;
+	color:#CC9543;
+	max-width:250px;
+	box-shadow:3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+	margin:auto;
+	font-family:'Norse';
+	font-weight:bold;
 }
 
 .visibility {
@@ -77,10 +97,17 @@ form {
 }
 
 .book {
-	background:white;
+	background:#4F5669;
 	border-radius:6px;
 	box-shadow:3px 3px 5px 6px rgba(0, 0, 0, 0.4);
+	display:flex;
+	flex-direction:column;
 }
+
+.remove {
+	align-self:center;
+}
+
 input {
 	display:block;
 }
@@ -90,3 +117,14 @@ input {
 		flex-direction:column;
 	}
 }
+
+@keyframes clicked {
+  0%   {border-top: solid 0 var(--bg-toggle); border-bottom: solid 5px var(--bg-toggle);}
+  25%  {border-top: solid 2px  var(--bg-toggle); border-bottom: solid 2px var(--bg-toggle);}
+  50%  {border-top: solid 5px var(--bg-toggle); border-bottom: solid 0 var(--bg-toggle);}
+  100% {border-top: solid 0 var(--bg-toggle); border-bottom: solid 5px var(--bg-toggle);}
+  }
+
+  /* Button animation credits to Soransh Singh:
+     https://github.com/soransh-singh/calculatorApp-FrontendMentor
+   */

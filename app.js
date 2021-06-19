@@ -63,6 +63,8 @@ function createBookCards() {
 		card.appendChild(remove_button);
 
 		displayBooks(card)
+
+		remove_button.classList.add('btn')
 		remove_button.addEventListener('click', removeBook);
 	}
 }
@@ -90,5 +92,5 @@ const books = [];
 window.addEventListener('DOMContentLoaded', createBookCards);
 
 
-const btn = document.querySelector('.btn') 
+const btn = document.querySelector('.add') 
 btn.addEventListener('click', toggleForm);
