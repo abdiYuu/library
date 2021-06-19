@@ -82,6 +82,7 @@ function removeBook(e) {
 		books.splice(index, 1);
 		const bookshelf = document.querySelector('.bookshelf');
 		bookshelf.removeChild(book_card);
+		createBookCards();
 	} else {
 		return;
 	}
