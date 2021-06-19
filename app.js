@@ -18,6 +18,9 @@ function getBookInfo() {
 	const read = document.getElementById('read').checked;
 
 	addBookToArray(title, author, pages, read)
+
+	const form = document.querySelector('form');
+	form.reset();
 }
 
 function addBookToArray(title, author, pages, read) {
@@ -73,8 +76,7 @@ function removeBook(e) {
 	let book_card = e.target.parentNode;
 	let index = book_card.dataset.index;
 
-	let verify = prompt(`Are you sure you want to remove "${books[index].title}" from your bookshelf?`)
-	if(verify === 'yes') {
+	if(confirm(`Are you sure you want to remove "${books[index].title}" from your bookshelf?`)) {
 		books.splice(index, 1);
 		const bookshelf = document.querySelector('.bookshelf');
 		bookshelf.removeChild(book_card);
@@ -84,6 +86,8 @@ function removeBook(e) {
 }
 
 const books = [];
+
+window.addEventListener('DOMContentLoaded', createBookCards);
 
 
 const btn = document.querySelector('.btn') 
